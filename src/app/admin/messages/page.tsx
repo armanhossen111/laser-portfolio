@@ -105,13 +105,22 @@ export default function MessagesPage() {
                                 </div>
                             </div>
 
-                            <button
-                                onClick={() => deleteMessage(msg.id)}
-                                className="flex items-center gap-2 text-red-500 hover:text-red-400 text-xs font-bold uppercase transition-colors"
-                            >
-                                <Trash2 className="w-4 h-4" />
-                                Delete Message
-                            </button>
+                            <div className="flex gap-4">
+                                <a
+                                    href={`mailto:${msg.email}?subject=RE: ${msg.subject}`}
+                                    className="flex items-center gap-2 text-safety-orange hover:text-orange-400 text-xs font-bold uppercase transition-colors"
+                                >
+                                    <Mail className="w-4 h-4" />
+                                    Reply via Email
+                                </a>
+                                <button
+                                    onClick={() => deleteMessage(msg.id)}
+                                    className="flex items-center gap-2 text-red-500 hover:text-red-400 text-xs font-bold uppercase transition-colors"
+                                >
+                                    <Trash2 className="w-4 h-4" />
+                                    Delete Message
+                                </button>
+                            </div>
                         </div>
                     ))
                 )}
