@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-dark-slate: #000a0a;
+  --color-dark-slate: #00020a;
   --color-safety-orange: #E67E22;
   --color-crisp-white: #ffffff;
   --color-background: var(--color-dark-slate);
