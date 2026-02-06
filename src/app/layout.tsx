@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -83,6 +84,21 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-LJMWZD3ZMC"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-LJMWZD3ZMC');
+          `}
+        </Script>
+
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://deziebvydthoxcgpnluv.supabase.co" />
         <link rel="dns-prefetch" href="https://deziebvydthoxcgpnluv.supabase.co" />
