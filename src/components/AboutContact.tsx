@@ -65,7 +65,8 @@ export default function AboutContact() {
                                 src="/bio.jpg"
                                 alt="MD Arman Profile"
                                 fill
-                                className="object-cover"
+                                className="object-cover object-top"
+
                             />
                         </div>
                         <div>

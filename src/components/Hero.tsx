@@ -50,7 +50,8 @@ export default function Hero() {
                                 src="/portrait.jpg"
                                 alt="Professional Portrait"
                                 fill
-                                className="object-cover opacity-80"
+                                className="object-cover object-top opacity-80"
+
                                 priority
                             />
                         </div>
