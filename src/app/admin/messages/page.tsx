@@ -107,7 +107,7 @@ export default function MessagesPage() {
 
                             <div className="flex gap-4">
                                 <a
-                                    href={`mailto:${msg.email}?subject=RE: ${msg.subject}`}
+                                    href={`mailto:${encodeURIComponent(msg.email)}?subject=${encodeURIComponent('RE: ' + msg.subject)}`}
                                     className="flex items-center gap-2 text-safety-orange hover:text-orange-400 text-xs font-bold uppercase transition-colors"
                                 >
                                     <Mail className="w-4 h-4" />
