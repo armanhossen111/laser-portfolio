@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { getSession, signOut } from '@/lib/auth'
-import { LayoutDashboard, FolderOpen, LogOut } from 'lucide-react'
+import { LayoutDashboard, FolderOpen, LogOut, Mail } from 'lucide-react'
 
 export default function AdminLayout({
     children,
@@ -79,8 +79,8 @@ export default function AdminLayout({
                         <Link
                             href="/admin/dashboard"
                             className={`flex items-center gap-3 px-4 py-3 rounded transition-colors ${pathname === '/admin/dashboard'
-                                    ? 'bg-safety-orange text-white'
-                                    : 'text-gray-400 hover:bg-zinc-800 hover:text-white'
+                                ? 'bg-safety-orange text-white'
+                                : 'text-gray-400 hover:bg-zinc-800 hover:text-white'
                                 }`}
                         >
                             <LayoutDashboard className="w-5 h-5" />
@@ -89,12 +89,22 @@ export default function AdminLayout({
                         <Link
                             href="/admin/projects"
                             className={`flex items-center gap-3 px-4 py-3 rounded transition-colors ${pathname.startsWith('/admin/projects')
-                                    ? 'bg-safety-orange text-white'
-                                    : 'text-gray-400 hover:bg-zinc-800 hover:text-white'
+                                ? 'bg-safety-orange text-white'
+                                : 'text-gray-400 hover:bg-zinc-800 hover:text-white'
                                 }`}
                         >
                             <FolderOpen className="w-5 h-5" />
                             Projects
+                        </Link>
+                        <Link
+                            href="/admin/messages"
+                            className={`flex items-center gap-3 px-4 py-3 rounded transition-colors ${pathname === '/admin/messages'
+                                ? 'bg-safety-orange text-white'
+                                : 'text-gray-400 hover:bg-zinc-800 hover:text-white'
+                                }`}
+                        >
+                            <Mail className="w-5 h-5" />
+                            Messages
                         </Link>
                     </nav>
                 </aside>

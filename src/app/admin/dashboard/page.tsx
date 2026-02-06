@@ -3,10 +3,11 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
-import { Plus, FolderOpen } from 'lucide-react'
+import { Plus, FolderOpen, Mail } from 'lucide-react'
 
 export default function AdminDashboard() {
     const [projectCount, setProjectCount] = useState(0)
+    const [messageCount, setMessageCount] = useState(0)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -21,6 +22,13 @@ export default function AdminDashboard() {
 
             if (error) throw error
             setProjectCount(count || 0)
+
+            const { count: mCount, error: mError } = await supabase
+                .from('contact_messages')
+                .select('*', { count: 'exact', head: true })
+
+            if (mError) throw mError
+            setMessageCount(mCount || 0)
         } catch (error) {
             console.error('Error fetching stats:', error)
         } finally {
@@ -43,6 +51,16 @@ export default function AdminDashboard() {
                     </div>
                     <div className="text-4xl font-bold text-white">
                         {loading ? '...' : projectCount}
+                    </div>
+                </div>
+
+                <div className="bg-dark-slate border border-zinc-700 p-6">
+                    <div className="flex items-center justify-between mb-2">
+                        <span className="text-gray-500 text-sm uppercase tracking-wider">Total Messages</span>
+                        <Mail className="w-5 h-5 text-safety-orange" />
+                    </div>
+                    <div className="text-4xl font-bold text-white">
+                        {loading ? '...' : messageCount}
                     </div>
                 </div>
 
