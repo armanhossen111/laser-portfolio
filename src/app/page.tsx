@@ -9,7 +9,7 @@ export default function Home() {
     <main className="min-h-screen bg-dark-slate selection:bg-safety-orange selection:text-white">
       <Hero />
       <Services />
-      <Portfolio />
+      <Portfolio isHomePage={true} />
       <AboutContact />
       <Footer />
     </main>
